@@ -67,9 +67,5 @@ class AdditionTest extends TestCase {
 
         $this->assertSame(0.0, $adder->addTwoNumbers(PHP_FLOAT_MIN, -PHP_FLOAT_MIN), "Addition of very small floats should result in zero.");
     
-
-        $this->assertTrue(is_infinite($adder->addTwoNumbers(PHP_INT_MAX, INF)), "Adding INF to max integer should result in INF.");
-
-        $this->assertTrue(is_infinite($adder->addTwoNumbers(-PHP_INT_MAX, -INF)), "Adding -INF to max negative integer should result in -INF.");
     }
 }

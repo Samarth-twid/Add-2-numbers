@@ -1,4 +1,4 @@
 - This is a program for adding two numbers.
-- To test the function open the terminal in the code editor (make sure the the path is the folder Add-2-numbers).
 - The function implementation can be found in AdditionService.php in src folder.
-- Run `phpunit tests/AdditionTest.php` in the terminal.
+- To test the function open the terminal in the code editor (make sure the the path is the folder Add-2-numbers).
+- Run `phpunit tests/AdditionTest.php` in the terminal to execute all tests.
