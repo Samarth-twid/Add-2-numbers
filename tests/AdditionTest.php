@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
+
+use function PHPUnit\Framework\isNan;
+
 require_once 'src/AdditionService.php';
 
 class AdditionTest extends TestCase {
@@ -29,5 +32,19 @@ class AdditionTest extends TestCase {
         $adder = new AdditionService();
         $this->expectException(InvalidArgumentException::class);
         $adder->addTwoNumbers('a', "_");
+    }
+
+    function testAdditionToInfValue(): void {
+        $adder = new AdditionService();
+        $this->assertEquals(INF,$adder->addTwoNumbers(INF,3));
+        $this->assertEquals(-INF,$adder->addTwoNumbers(-INF,4));
+        $this->assertTrue(is_nan($adder->addTwoNumbers(INF,-INF)));
+    }
+
+    function testAdditionOfNAN(): void {
+        $adder = new AdditionService();
+        $this->assertTrue(is_nan($adder->addTwoNumbers(NAN,3)));
+        $this->assertTrue(is_nan($adder->addTwoNumbers(NAN,INF)));
+        $this->assertTrue(is_nan($adder->addTwoNumbers(NAN,NAN)));
     }
 }
