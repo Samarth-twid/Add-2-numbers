@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-use App\AdditionService;
 use PHPUnit\Framework\TestCase;
 require_once 'src/AdditionService.php';
 
@@ -24,5 +23,11 @@ class AdditionTest extends TestCase {
     function testAdditionOfFloat(): void {
         $adder = new AdditionService();
         $this->assertEquals(-4.5,$adder->AddTwoNumbers(-7.2,2.7));
+    }
+
+    function testExceptionOfNonNumericType(): void {
+        $adder = new AdditionService();
+        $this->expectException(InvalidArgumentException::class);
+        $adder->addTwoNumbers('a', "_");
     }
 }
