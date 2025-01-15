@@ -5,9 +5,9 @@
 
 - Pre-requisites:
 
-1. PHP
-2. PHPUnit
-3. Composer
+1. PHP (8.4.2)
+2. PHPUnit (11.5.3)
+3. Composer (2.8.4)
 
 - To test the code locally, open your terminal:
 
