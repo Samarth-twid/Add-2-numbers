@@ -4,35 +4,42 @@ use PHPUnit\Framework\TestCase;
 
 require_once 'src/AdditionService.php';
 
-class AdditionTest extends TestCase {
+class AdditionTest extends TestCase 
+{
     
-    function testAdditionOf2PositiveNumbers() {
+    function testAdditionOf2PositiveNumbers() 
+    {
         $adder = new AdditionService();
         $this->assertEquals(8,$adder->AddTwoNumbers(2,6));
     }
 
-    function testAdditionOf2NegativeNumbers() {
+    function testAdditionOf2NegativeNumbers() 
+    {
         $adder = new AdditionService();
         $this->assertEquals(-9,$adder->AddTwoNumbers(-8,-1));
     }
 
-    function testAdditionOf2Numbers() {
+    function testAdditionOf2Numbers() 
+    {
         $adder = new AdditionService();
         $this->assertEquals(-4,$adder->AddTwoNumbers(-7,3));
     }
 
-    function testAdditionOfFloat() {
+    function testAdditionOfFloat() 
+    {
         $adder = new AdditionService();
         $this->assertEquals(-4.5,$adder->AddTwoNumbers(-7.2,2.7));
     }
 
-    function testExceptionOfNonNumericType() {
+    function testExceptionOfNonNumericType() 
+    {
         $adder = new AdditionService();
         $this->expectException(InvalidArgumentException::class);
         $adder->addTwoNumbers('a', "_");
     }
 
-    function testAdditionToInfValue() {
+    function testAdditionToInfValue() 
+    {
         $adder = new AdditionService();
 
         $this->assertEquals(INF,$adder->addTwoNumbers(INF,3),"Addition of any number to INF will result in INF");
@@ -42,7 +49,8 @@ class AdditionTest extends TestCase {
         $this->assertTrue(is_nan($adder->addTwoNumbers(INF,-INF)),"Addition of INF and -INF will result in NAN");
     }
 
-    function testAdditionOfNAN() {
+    function testAdditionOfNAN() 
+    {
         $adder = new AdditionService();
 
         $this->assertTrue(is_nan($adder->addTwoNumbers(NAN,3)),"Addition of NAN to any numeric type will result in NAN");
@@ -52,7 +60,8 @@ class AdditionTest extends TestCase {
         $this->assertTrue(is_nan($adder->addTwoNumbers(NAN,NAN)));
     }
 
-    function testAdditionOverflowAndUnderflow() {
+    function testAdditionOverflowAndUnderflow() 
+    {
         $adder = new AdditionService();
         
         $this->assertIsFloat($adder->addTwoNumbers(PHP_INT_MAX, PHP_INT_MAX), "Overflow from integer should result in float.");
